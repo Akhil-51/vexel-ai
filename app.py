@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify
+import os
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-from agent import agent, tools
+from agent import agent
 from langchain_core.messages import AIMessage, ToolMessage
 
 app = Flask(__name__, static_folder="static", static_url_path="")
