@@ -41,6 +41,8 @@ def chat():
         })
 
     except Exception as e:
+        import traceback
+        print("CHAT ERROR:", traceback.format_exc())
         return jsonify({"error": str(e)}), 500
 
 
