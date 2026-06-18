@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vexel AI | Stunning Interactive Agentic Research Platform</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons for tools -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Dynamic Glowing Backgrounds -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+        <span>Vexel.ai</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-secondary" onclick="openConsole()">Launch Console</button>
+      </div>
+      <button class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="toggleMobileMenu()">Features</a>
+    <a href="#benefits" onclick="toggleMobileMenu()">Benefits</a>
+    <a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
+    <a href="#pricing" onclick="toggleMobileMenu()">Pricing</a>
+    <button class="btn btn-primary" onclick="openConsole(); toggleMobileMenu();">Launch Console</button>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <h1 class="hero-title">Automate your research with <span class="gradient-text">Vexel AI Platform</span>.</h1>
+      <p class="hero-subtitle">An agentic intelligence team equipped with 9 real-time tools to scrape the web, calculate math, evaluate currencies, and deliver actionable insights in seconds.</p>
+      
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="openConsole()">Start Querying Free</button>
+        <button class="btn btn-outline btn-lg" onclick="scrollToSection('features')">Explore 9 Tools</button>
+      </div>
+
+      <div class="trusted-by">
+        <p>Trusted by 10k+ marketers and researchers</p>
+        <div class="trusted-avatars">
+          <img src="https://files.peachworlds.com/website/6ababaa9-ff75-44b1-8c50-dda2ba4b8c62/4.png" alt="User Avatar">
+          <img src="https://files.peachworlds.com/website/4272c279-1ce5-404c-b748-b7325710bbf1/1.png" alt="User Avatar">
+          <img src="https://files.peachworlds.com/website/91e26ed1-6ae0-4f07-8a45-864b9bc79db6/3.png" alt="User Avatar">
+          <img src="https://files.peachworlds.com/website/402e4e5c-4a02-41ec-80b6-2df4a537add3/2.png" alt="User Avatar">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS -->
+  <section class="clients-section">
+    <div class="container">
+      <div class="logo-marquee">
+        <div class="marquee-track">
+          <!-- Brands -->
+          <div class="brand-logo"><i class="fa-brands fa-nike"></i> NIKE</div>
+          <div class="brand-logo"><i class="fa-solid fa-shirt"></i> PRADA</div>
+          <div class="brand-logo"><i class="fa-brands fa-disney"></i> Disney</div>
+          <div class="brand-logo"><i class="fa-solid fa-tractor"></i> JOHN DEERE</div>
+          <div class="brand-logo"><i class="fa-brands fa-apple"></i> Apple</div>
+          <div class="brand-logo"><i class="fa-brands fa-google"></i> Google</div>
+          <!-- Repeat for smooth scroll -->
+          <div class="brand-logo"><i class="fa-brands fa-nike"></i> NIKE</div>
+          <div class="brand-logo"><i class="fa-solid fa-shirt"></i> PRADA</div>
+          <div class="brand-logo"><i class="fa-brands fa-disney"></i> Disney</div>
+          <div class="brand-logo"><i class="fa-solid fa-tractor"></i> JOHN DEERE</div>
+          <div class="brand-logo"><i class="fa-brands fa-apple"></i> Apple</div>
+          <div class="brand-logo"><i class="fa-brands fa-google"></i> Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENT POWER DEMO GRID (FEATURES) -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">9 POWERFUL TOOLS</span>
+        <h2 class="section-title">The Future of Research is Multi-Agent.</h2>
+        <p class="section-subtitle">Our agent is fully autonomous. It analyzes your query, chooses the optimal tools, and chains operations together to build answers.</p>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Web Search -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap violet-glow">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <h3>Web Search</h3>
+          <p>Real-time internet access for current events, facts, news, and time-sensitive inquiries.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('Latest updates on artificial intelligence research from this month')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Calculator -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap cyan-glow">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <h3>Math Evaluator</h3>
+          <p>Safely computes complex math expressions like powering, multiplication, division, and logic.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('What is 25 * 4 + (99 / 3) raised to the power of 2?')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Wikipedia -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap emerald-glow">
+            <i class="fa-brands fa-wikipedia-w"></i>
+          </div>
+          <h3>Wikipedia Search</h3>
+          <p>Extracts authoritative facts, history, biographies, and descriptions of locations or events.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('Give me a summary of the architectural marvel Eiffel Tower')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Weather -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap amber-glow">
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+          </div>
+          <h3>Weather Checker</h3>
+          <p>Fetches real-time temperature, wind, and forecast conditions for any global city instantly.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('What is the weather like in Paris today?')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Currency -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap rose-glow">
+            <i class="fa-solid fa-coins"></i>
+          </div>
+          <h3>Currency Converter</h3>
+          <p>Converts foreign exchange values with live exchange rates for worldwide currency symbols.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('How much is 1500 USD in INR exchange rate?')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Unit Converter -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap blue-glow">
+            <i class="fa-solid fa-ruler-combined"></i>
+          </div>
+          <h3>Unit Converter</h3>
+          <p>Converts physical units like distance (miles/km), mass (lbs/kg), and temperature (Fahrenheit/Celsius).</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('Convert 26 miles to km and 85 fahrenheit to celsius')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- News Headlines -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap violet-glow">
+            <i class="fa-solid fa-newspaper"></i>
+          </div>
+          <h3>News Headlines</h3>
+          <p>Scrapes top recent news headlines for a specific category, company, or search topic.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('What is the latest news about Space exploration advancements?')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Date Calculator -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap cyan-glow">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <h3>Date Calculator</h3>
+          <p>Calculates intervals between dates, calendar offsets, weekdays, and current times.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('How many days are there until December 25, 2026?')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Random Fact -->
+        <div class="tool-card">
+          <div class="tool-icon-wrap amber-glow">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3>Random Facts</h3>
+          <p>Pulls an interesting, educational, or fun science trivia fact from the local fact database.</p>
+          <button class="btn-tool-try" onclick="tryToolQuery('Tell me a random interesting fact!')">
+            Try Example <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS / PERFORMANCE STATS -->
+  <section id="benefits" class="benefits-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h2>+48%</h2>
+          <p>Research Efficiency</p>
+        </div>
+        <div class="stat-card">
+          <h2>-21%</h2>
+          <p>Cost Reduction</p>
+        </div>
+        <div class="stat-card">
+          <h2>10K+</h2>
+          <p>Happy Marketers</p>
+        </div>
+        <div class="stat-card">
+          <h2>24/7</h2>
+          <p>Autonomous uptime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">TESTIMONIALS</span>
+        <h2 class="section-title">What people say.</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <p class="quote">“Success, in all its forms, gives rise to more success. If we forget about getting our share, and focus on doing our part, we can all prosper.”</p>
+          <div class="user-info">
+            <img src="https://files.peachworlds.com/website/bb0a68c2-4396-4a0a-a534-c2ecbe723369/image-1927.png" alt="John Doe">
+            <div>
+              <h4>John Doe</h4>
+              <span>CEO, Nike</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <p class="quote">“We saw measurable improvements in campaign performance within the first quarter and continue to benefit from their autonomous guidance.”</p>
+          <div class="user-info">
+            <img src="https://files.peachworlds.com/website/6c37f5b5-d97d-4c7a-8acb-9a371a86fa60/image-1928.png" alt="Celine Doe">
+            <div>
+              <h4>Celine Doe</h4>
+              <span>CEO, Prada</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <p class="quote">“Their insights were practical, data-driven, and immediately actionable. Vexel is an invaluable member of our core analytics stack.”</p>
+          <div class="user-info">
+            <img src="https://files.peachworlds.com/website/bb17a18f-b3a9-48e7-aab4-be612e4e0ad6/image-1929.png" alt="Mike Doe">
+            <div>
+              <h4>Mike Doe</h4>
+              <span>Marketing, John Deere</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">PRICING</span>
+        <h2 class="section-title">Pricing for teams.</h2>
+        <p class="section-subtitle">Affordable access to infinite agentic capability. Scale your research teams dynamically.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Card 1 -->
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <p class="desc">Perfect for individuals starting out with AI agents.</p>
+          <div class="price">$199<span>/mo</span></div>
+          <hr>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Up to 2 active users</li>
+            <li><i class="fa-solid fa-check"></i> Basic dashboard access</li>
+            <li><i class="fa-solid fa-check"></i> 9 core tools available</li>
+            <li><i class="fa-solid fa-check"></i> Real-time tool telemetry</li>
+          </ul>
+          <button class="btn btn-outline full-width" onclick="openConsole()">Try Starter Console</button>
+        </div>
+
+        <!-- Card 2 (Popular) -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">POPULAR</div>
+          <h3>Professional</h3>
+          <p class="desc">Ideal for growing teams requiring deep-dive capabilities.</p>
+          <div class="price">$499<span>/mo</span></div>
+          <hr>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Up to 10 active users</li>
+            <li><i class="fa-solid fa-check"></i> Premium high-speed tokens</li>
+            <li><i class="fa-solid fa-check"></i> Interactive workflow tracking</li>
+            <li><i class="fa-solid fa-check"></i> Priority API access rates</li>
+          </ul>
+          <button class="btn btn-primary full-width" onclick="openConsole()">Launch Premium Console</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <p class="desc">Best for large teams needing dedicated resources.</p>
+          <div class="price">$899<span>/mo</span></div>
+          <hr>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Unlimited active users</li>
+            <li><i class="fa-solid fa-check"></i> Dedicated Groq model rates</li>
+            <li><i class="fa-solid fa-check"></i> Custom agent tool overrides</li>
+            <li><i class="fa-solid fa-check"></i> 24/7 dedicated support desk</li>
+          </ul>
+          <button class="btn btn-outline full-width" onclick="openConsole()">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-cta">
+        <h2>Scale with Vexel.<br>Start today.</h2>
+        <div class="footer-cta-buttons">
+          <button class="btn btn-primary btn-lg" onclick="openConsole()">Sign Up Free</button>
+          <button class="btn btn-outline btn-lg" onclick="openConsole()">Watch Demo</button>
+        </div>
+      </div>
+      
+      <hr class="footer-divider">
+
+      <div class="footer-links-row">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+            <span>Vexel.ai</span>
+          </div>
+          <p>contact@vexel.com</p>
+        </div>
+        <div class="footer-menu-col">
+          <h4>Menu</h4>
+          <a href="#features">Features</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="footer-menu-col">
+          <h4>Socials</h4>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- AGENT CHAT CONSOLE MODAL OVERLAY -->
+  <!-- ========================================== -->
+  <div class="console-overlay" id="consoleOverlay">
+    <div class="console-box">
+      <!-- Close console button -->
+      <button class="btn-console-close" onclick="closeConsole()"><i class="fa-solid fa-xmark"></i></button>
+
+      <!-- Sidebar: Navigation & Session History -->
+      <div class="console-sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+          <span>Vexel Console</span>
+        </div>
+        
+        <button class="btn-new-chat" onclick="startNewChat()"><i class="fa-solid fa-plus"></i> New Session</button>
+
+        <div class="sidebar-section-title">Chat Sessions</div>
+        <div class="session-list" id="sessionList">
+          <!-- Dynamically populated from JS -->
+        </div>
+
+        <button class="btn-clear-history" onclick="clearHistory()"><i class="fa-solid fa-trash-can"></i> Clear All History</button>
+      </div>
+
+      <!-- Main Chat panel -->
+      <div class="console-chat-panel">
+        <div class="chat-header">
+          <div class="agent-status-badge">
+            <span class="status-pulse-green"></span>
+            <span>Vexel Llama-3-70b Agent Active</span>
+          </div>
+        </div>
+
+        <!-- Chat messages view -->
+        <div class="chat-messages-container" id="chatContainer">
+          <!-- Initial greeting -->
+          <div class="chat-msg agent">
+            <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="msg-content-wrapper">
+              <div class="msg-sender">Vexel Assistant</div>
+              <div class="msg-text">Hello! I am your agentic research assistant. I have access to 9 tools (Web Search, Wikipedia, Math, Weather, Currency, Units, News, Date math, and Random Facts). Ask me any multi-step problem, and I'll solve it!</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat input panel -->
+        <div class="chat-input-row">
+          <textarea id="chatInput" placeholder="Ask Vexel AI to find or calculate something... (Press Enter to send)" rows="1"></textarea>
+          <button class="btn-send" id="btnSend" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Dynamic Tools Telemetry Monitor -->
+      <div class="console-telemetry-panel">
+        <div class="telemetry-header">
+          <h3>Agent Tools telemetry</h3>
+          <p>Real-time visual monitoring of tool calls executed by the backend graph.</p>
+        </div>
+
+        <div class="telemetry-tools-list">
+          <div class="telemetry-tool" id="t_web_search">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-globe tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>web_search</h4>
+              <span>DuckDuckGo Web Scraper</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_calculator">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-calculator tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>calculator</h4>
+              <span>Math AST Evaluator</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_wikipedia_search">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-brands fa-wikipedia-w tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>wikipedia_search</h4>
+              <span>Wikipedia Core Facts API</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_get_weather">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-cloud-sun-rain tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>get_weather</h4>
+              <span>wttr.in Weather Fetcher</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_currency_converter">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-coins tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>currency_converter</h4>
+              <span>Live currency rates API</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_unit_converter">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-ruler-combined tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>unit_converter</h4>
+              <span>Physical Units converter</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_news_headlines">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-newspaper tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>news_headlines</h4>
+              <span>Current event headlines search</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_date_calculator">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-calendar-days tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>date_calculator</h4>
+              <span>Calendar math utility</span>
+            </div>
+          </div>
+
+          <div class="telemetry-tool" id="t_random_fact">
+            <div class="tool-tele-indicator"></div>
+            <i class="fa-solid fa-lightbulb tool-tele-icon"></i>
+            <div class="tool-tele-details">
+              <h4>random_fact</h4>
+              <span>Local trivia generator</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="telemetry-tips">
+          <div class="tip-title"><i class="fa-solid fa-info-circle"></i> Telemetry Note</div>
+          <p>When the Research Agent determines that it needs external information or computational aid, the matching indicator above will turn bright green/cyan and pulse during tool execution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript entrypoint -->
+  <script src="script.js"></script>
+</body>
+</html>
