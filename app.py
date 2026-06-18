@@ -10,6 +10,14 @@ CORS(app)
 def home():
     return send_from_directory('.', 'index.html')
 
+@app.route('/test')
+def test():
+    try:
+        from agent import agent
+        return jsonify({"status": "agent loaded OK"})
+    except Exception as e:
+        return jsonify({"error": str(e), "trace": traceback.format_exc()})
+
 @app.route('/<path:filename>')
 def static_files(filename):
     return send_from_directory('.', filename)
