@@ -4,14 +4,18 @@ from flask_cors import CORS
 from agent import agent
 from langchain_core.messages import AIMessage, ToolMessage
 
-app = Flask(__name__, static_folder="static", static_url_path="")
+app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return app.send_static_file("index.html")
+    return send_from_directory('.', 'index.html')
 
-@app.route("/chat", methods=["POST"])
+@app.route('/<path:filename>')
+def static_files(filename):
+    return send_from_directory('.', filename)
+
+@app.route('/chat', methods=['POST'])
 def chat():
     data = request.json
     user_message = data.get("message", "")
@@ -29,7 +33,6 @@ def chat():
 
         for msg in response["messages"]:
             if isinstance(msg, ToolMessage):
-                # Extract which tool was called
                 tname = msg.name if hasattr(msg, "name") else "web_search"
                 tools_used.append(tname)
             elif isinstance(msg, AIMessage) and msg.content:
@@ -51,4 +54,4 @@ if __name__ == "__main__":
     print("Research Agent API running at http://localhost:5000")
     print("=" * 50)
     port = int(os.environ.get("PORT", 5000))
-app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False, host="0.0.0.0", port=port)
