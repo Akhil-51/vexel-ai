@@ -1,10 +1,9 @@
 import os
+import traceback
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-from agent import agent
-from langchain_core.messages import AIMessage, ToolMessage
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+app = Flask(__name__)
 CORS(app)
 
 @app.route('/')
@@ -17,13 +16,16 @@ def static_files(filename):
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    data = request.json
-    user_message = data.get("message", "")
-
-    if not user_message:
-        return jsonify({"error": "No message provided"}), 400
-
     try:
+        from agent import agent
+        from langchain_core.messages import AIMessage, ToolMessage
+
+        data = request.json
+        user_message = data.get("message", "")
+
+        if not user_message:
+            return jsonify({"error": "No message provided"}), 400
+
         response = agent.invoke({
             "messages": [{"role": "user", "content": user_message}]
         })
@@ -34,7 +36,8 @@ def chat():
         for msg in response["messages"]:
             if isinstance(msg, ToolMessage):
                 tname = msg.name if hasattr(msg, "name") else "web_search"
-                tools_used.append(tname)
+                if tname not in tools_used:
+                    tools_used.append(tname)
             elif isinstance(msg, AIMessage) and msg.content:
                 final_answer = msg.content
 
@@ -44,14 +47,12 @@ def chat():
         })
 
     except Exception as e:
-        import traceback
-        print("CHAT ERROR:", traceback.format_exc())
-        return jsonify({"error": str(e)}), 500
+        error_details = traceback.format_exc()
+        print("CHAT ERROR:\n", error_details)
+        return jsonify({"error": str(e), "details": error_details}), 500
 
 
 if __name__ == "__main__":
-    print("=" * 50)
-    print("Research Agent API running at http://localhost:5000")
-    print("=" * 50)
     port = int(os.environ.get("PORT", 5000))
+    print(f"Starting on port {port}")
     app.run(debug=False, host="0.0.0.0", port=port)
